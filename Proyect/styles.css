@@ -1,0 +1,264 @@
+/* ===== Variables ===== */
+:root {
+  --bg: #0d0c0b;
+  --bg-panel: #161412;
+  --surface: #1e1b18;
+  --gold: #c9a227;
+  --gold-light: #e5c65c;
+  --amber: #b8860b;
+  --text: #e8e4df;
+  --text-muted: #9a958e;
+  --accent: #8b6914;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --radius: 8px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ===== Reset y base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--gold-light); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== Header y logo ===== */
+.site-header {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+}
+.logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.logo-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+.tagline {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ===== Contenido (a la derecha del árbol) ===== */
+.content-wrap { margin-left: 180px; }
+.main-content { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 2rem; }
+.panel {
+  margin-bottom: 3rem;
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.panel-visual {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+.panel-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.panel-body { padding: 1.5rem 1.75rem; }
+.panel-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+.panel-body h3 {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  margin: 0 0 0.35rem;
+}
+.panel-body p { margin: 0 0 1rem; }
+.panel-body ul, .panel-body ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+.panel-body li { margin-bottom: 0.35rem; }
+
+.exponentes-list, .best-list { list-style: none; padding-left: 0; }
+.exponentes-list li, .best-list li {
+  padding-left: 1rem;
+  position: relative;
+}
+.exponentes-list li::before { content: "♪ "; color: var(--gold); position: absolute; left: 0; }
+.best-list li::before { content: "• "; color: var(--gold); position: absolute; left: 0; }
+
+.top-list, .streaming-list { counter-reset: list; }
+.top-list li, .streaming-list li {
+  list-style: none;
+  padding-left: 2rem;
+  position: relative;
+}
+.top-list li::before, .streaming-list li::before {
+  counter-increment: list;
+  content: counter(list);
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Tipos de jazz (grid) ===== */
+.tipos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.tipo-card {
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border-left: 3px solid var(--amber);
+}
+.tipo-card p { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+
+/* Ideograma e infograma ===== */
+.panel-ideograma .panel-body p { font-style: italic; }
+.infograma-fig { margin: 0 0 1rem; }
+.infograma-fig img { border-radius: var(--radius); }
+.infograma-fig figcaption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+.timeline-text {
+  list-style: none;
+  padding-left: 0;
+  font-size: 0.95rem;
+}
+.timeline-text li { margin-bottom: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--gold); }
+
+/* Pasos (navegación) ===== */
+.steps-nav {
+  background: var(--surface);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  border: 1px solid var(--accent);
+}
+.steps-nav.hidden { display: none; }
+.steps-title { margin: 0 0 0.75rem; font-weight: 600; color: var(--gold); }
+.steps-list {
+  margin: 0;
+  padding-left: 1.5rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.steps-list a { color: var(--text); }
+.steps-list a:hover { color: var(--gold-light); }
+
+/* Referencias ===== */
+.referencias {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--accent);
+}
+.referencias h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+.ref-list {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.ref-list li { margin-bottom: 0.5rem; }
+.ref-list a { color: var(--gold-light); }
+.ref-note { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
+/* Iconos de sección ===== */
+.section-icons {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--surface);
+  border-radius: 50px;
+  box-shadow: var(--shadow);
+  opacity: 0.85;
+}
+.icon-item { font-size: 1.25rem; }
+
+/* ===== Estructura en árbol: menú lateral ===== */
+.tree-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 180px;
+  padding: 1.25rem 1rem;
+  background: var(--surface);
+  border-right: 1px solid var(--accent);
+  height: 100vh;
+  overflow-y: auto;
+}
+.tree-nav-title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--accent);
+}
+.tree-nav a {
+  display: block;
+  padding: 0.4rem 0;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.tree-nav a:hover { color: var(--gold-light); }
+
+@media (max-width: 768px) {
+  .content-wrap { margin-left: 0; }
+  .main-content { padding: 0 1.5rem 2rem; }
+  .tree-nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--accent);
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+    align-items: center;
+  }
+  .tree-nav-title { margin-bottom: 0; margin-right: 0.5rem; }
+  .tree-nav a { padding: 0.25rem 0; }
+  .logo-wrap { flex-direction: column; }
+  .panel-body { padding: 1.25rem; }
+  .tipos-grid { grid-template-columns: 1fr; }
+}
